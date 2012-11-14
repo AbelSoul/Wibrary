@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC2703A516539A7E00E6A005 /* RosteringFileRetriever.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2703A416539A7E00E6A005 /* RosteringFileRetriever.m */; };
+		AC2703B61653B0BD00E6A005 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2703B11653B0BD00E6A005 /* TFHpple.m */; };
+		AC2703B71653B0BD00E6A005 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2703B31653B0BD00E6A005 /* TFHppleElement.m */; };
+		AC2703B81653B0BD00E6A005 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2703B51653B0BD00E6A005 /* XPathQuery.m */; };
+		AC2703BC1653B11E00E6A005 /* GBRFDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2703BB1653B11E00E6A005 /* GBRFDocument.m */; };
+		AC2703BF1653B70A00E6A005 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2703BE1653B70A00E6A005 /* libxml2.dylib */; };
 		D3ED19FA1652D48A006CF330 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3ED19F91652D48A006CF330 /* UIKit.framework */; };
 		D3ED19FC1652D48A006CF330 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3ED19FB1652D48A006CF330 /* Foundation.framework */; };
 		D3ED19FE1652D48A006CF330 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3ED19FD1652D48A006CF330 /* CoreGraphics.framework */; };
@@ -22,6 +28,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC2703A11653943F00E6A005 /* WibraryConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WibraryConstants.h; sourceTree = "<group>"; };
+		AC2703A316539A7E00E6A005 /* RosteringFileRetriever.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RosteringFileRetriever.h; sourceTree = "<group>"; };
+		AC2703A416539A7E00E6A005 /* RosteringFileRetriever.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RosteringFileRetriever.m; sourceTree = "<group>"; };
+		AC2703B01653B0BD00E6A005 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		AC2703B11653B0BD00E6A005 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		AC2703B21653B0BD00E6A005 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		AC2703B31653B0BD00E6A005 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		AC2703B41653B0BD00E6A005 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		AC2703B51653B0BD00E6A005 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		AC2703BA1653B11E00E6A005 /* GBRFDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBRFDocument.h; sourceTree = "<group>"; };
+		AC2703BB1653B11E00E6A005 /* GBRFDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBRFDocument.m; sourceTree = "<group>"; };
+		AC2703BE1653B70A00E6A005 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		D3ED19F51652D48A006CF330 /* Wibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3ED19F91652D48A006CF330 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D3ED19FB1652D48A006CF330 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -46,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC2703BF1653B70A00E6A005 /* libxml2.dylib in Frameworks */,
 				D3ED19FA1652D48A006CF330 /* UIKit.framework in Frameworks */,
 				D3ED19FC1652D48A006CF330 /* Foundation.framework in Frameworks */,
 				D3ED19FE1652D48A006CF330 /* CoreGraphics.framework in Frameworks */,
@@ -55,9 +74,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC2703AE1653B08000E6A005 /* HTML Parsing */ = {
+			isa = PBXGroup;
+			children = (
+				AC2703AF1653B09500E6A005 /* hpple */,
+				AC2703B91653B10100E6A005 /* Parsing Model */,
+			);
+			name = "HTML Parsing";
+			sourceTree = "<group>";
+		};
+		AC2703AF1653B09500E6A005 /* hpple */ = {
+			isa = PBXGroup;
+			children = (
+				AC2703B01653B0BD00E6A005 /* TFHpple.h */,
+				AC2703B11653B0BD00E6A005 /* TFHpple.m */,
+				AC2703B21653B0BD00E6A005 /* TFHppleElement.h */,
+				AC2703B31653B0BD00E6A005 /* TFHppleElement.m */,
+				AC2703B41653B0BD00E6A005 /* XPathQuery.h */,
+				AC2703B51653B0BD00E6A005 /* XPathQuery.m */,
+			);
+			name = hpple;
+			sourceTree = "<group>";
+		};
+		AC2703B91653B10100E6A005 /* Parsing Model */ = {
+			isa = PBXGroup;
+			children = (
+				AC2703BA1653B11E00E6A005 /* GBRFDocument.h */,
+				AC2703BB1653B11E00E6A005 /* GBRFDocument.m */,
+			);
+			name = "Parsing Model";
+			sourceTree = "<group>";
+		};
 		D3ED19EA1652D48A006CF330 = {
 			isa = PBXGroup;
 			children = (
+				AC2703BE1653B70A00E6A005 /* libxml2.dylib */,
+				AC2703AE1653B08000E6A005 /* HTML Parsing */,
 				D3ED19FF1652D48A006CF330 /* Wibrary */,
 				D3ED19F81652D48A006CF330 /* Frameworks */,
 				D3ED19F61652D48A006CF330 /* Products */,
@@ -91,6 +143,9 @@
 				D3ED1A141652D48B006CF330 /* MainStoryboard_iPad.storyboard */,
 				D3ED1A171652D48B006CF330 /* WibraryViewController.h */,
 				D3ED1A181652D48B006CF330 /* WibraryViewController.m */,
+				AC2703A11653943F00E6A005 /* WibraryConstants.h */,
+				AC2703A316539A7E00E6A005 /* RosteringFileRetriever.h */,
+				AC2703A416539A7E00E6A005 /* RosteringFileRetriever.m */,
 				D3ED1A001652D48A006CF330 /* Supporting Files */,
 			);
 			path = Wibrary;
@@ -181,6 +236,11 @@
 				D3ED1A061652D48A006CF330 /* main.m in Sources */,
 				D3ED1A0A1652D48A006CF330 /* WibraryAppDelegate.m in Sources */,
 				D3ED1A191652D48B006CF330 /* WibraryViewController.m in Sources */,
+				AC2703A516539A7E00E6A005 /* RosteringFileRetriever.m in Sources */,
+				AC2703B61653B0BD00E6A005 /* TFHpple.m in Sources */,
+				AC2703B71653B0BD00E6A005 /* TFHppleElement.m in Sources */,
+				AC2703B81653B0BD00E6A005 /* XPathQuery.m in Sources */,
+				AC2703BC1653B11E00E6A005 /* GBRFDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +331,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wibrary/Wibrary-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "Wibrary/Wibrary-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -282,6 +343,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wibrary/Wibrary-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "Wibrary/Wibrary-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -307,6 +369,7 @@
 				D3ED1A1E1652D48B006CF330 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
