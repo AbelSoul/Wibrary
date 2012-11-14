@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AQGridView.h"
 
-@interface GridViewCell : AQGridView
+@interface GridViewCell : AQGridViewCell
 
 @property (nonatomic, retain)UIImageView *imageView;
 @property (nonatomic, retain)UILabel *captionLabel;

@@ -32,6 +32,10 @@
 		D34336A5165433A000B153CE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34336A4165433A000B153CE /* QuartzCore.framework */; };
 		D34336A8165433F000B153CE /* GridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D34336A7165433F000B153CE /* GridViewCell.m */; };
 		D34336AA165439FB00B153CE /* gbr-background-crop.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D34336A9165439FB00B153CE /* gbr-background-crop.jpg */; };
+		D3CAAE991654538D0042EF94 /* tab-mask.png in Resources */ = {isa = PBXBuildFile; fileRef = D3CAAE981654538D0042EF94 /* tab-mask.png */; };
+		D3CAAE9D1654572C0042EF94 /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CAAE9C1654572C0042EF94 /* GridViewController.m */; };
+		D3CAAE9F165459810042EF94 /* gbr-ppt.png in Resources */ = {isa = PBXBuildFile; fileRef = D3CAAE9E165459810042EF94 /* gbr-ppt.png */; };
+		D3CAAEA216545D9B0042EF94 /* DocumentService.m in Sources */ = {isa = PBXBuildFile; fileRef = D3CAAEA116545D9B0042EF94 /* DocumentService.m */; };
 		D3ED19FA1652D48A006CF330 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3ED19F91652D48A006CF330 /* UIKit.framework */; };
 		D3ED19FC1652D48A006CF330 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3ED19FB1652D48A006CF330 /* Foundation.framework */; };
 		D3ED19FE1652D48A006CF330 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3ED19FD1652D48A006CF330 /* CoreGraphics.framework */; };
@@ -92,6 +96,12 @@
 		D34336A6165433F000B153CE /* GridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridViewCell.h; sourceTree = "<group>"; };
 		D34336A7165433F000B153CE /* GridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridViewCell.m; sourceTree = "<group>"; };
 		D34336A9165439FB00B153CE /* gbr-background-crop.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "gbr-background-crop.jpg"; sourceTree = "<group>"; };
+		D3CAAE981654538D0042EF94 /* tab-mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab-mask.png"; sourceTree = "<group>"; };
+		D3CAAE9B1654572C0042EF94 /* GridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GridViewController.h; path = ../GridViewController.h; sourceTree = "<group>"; };
+		D3CAAE9C1654572C0042EF94 /* GridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GridViewController.m; path = ../GridViewController.m; sourceTree = "<group>"; };
+		D3CAAE9E165459810042EF94 /* gbr-ppt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gbr-ppt.png"; sourceTree = "<group>"; };
+		D3CAAEA016545D9B0042EF94 /* DocumentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentService.h; sourceTree = "<group>"; };
+		D3CAAEA116545D9B0042EF94 /* DocumentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentService.m; sourceTree = "<group>"; };
 		D3ED19F51652D48A006CF330 /* Wibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3ED19F91652D48A006CF330 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D3ED19FB1652D48A006CF330 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -243,6 +253,12 @@
 		D3ED19FF1652D48A006CF330 /* Wibrary */ = {
 			isa = PBXGroup;
 			children = (
+				D34336A6165433F000B153CE /* GridViewCell.h */,
+				D34336A7165433F000B153CE /* GridViewCell.m */,
+				D3CAAEA016545D9B0042EF94 /* DocumentService.h */,
+				D3CAAEA116545D9B0042EF94 /* DocumentService.m */,
+				D3CAAE9B1654572C0042EF94 /* GridViewController.h */,
+				D3CAAE9C1654572C0042EF94 /* GridViewController.m */,
 				D3ED1A081652D48A006CF330 /* WibraryAppDelegate.h */,
 				D3ED1A091652D48A006CF330 /* WibraryAppDelegate.m */,
 				D3ED1A111652D48B006CF330 /* MainStoryboard_iPhone.storyboard */,
@@ -253,8 +269,6 @@
 				AC2703A316539A7E00E6A005 /* RosteringFileRetriever.h */,
 				AC2703A416539A7E00E6A005 /* RosteringFileRetriever.m */,
 				D3ED1A001652D48A006CF330 /* Supporting Files */,
-				D34336A6165433F000B153CE /* GridViewCell.h */,
-				D34336A7165433F000B153CE /* GridViewCell.m */,
 			);
 			path = Wibrary;
 			sourceTree = "<group>";
@@ -262,6 +276,8 @@
 		D3ED1A001652D48A006CF330 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D3CAAE9E165459810042EF94 /* gbr-ppt.png */,
+				D3CAAE981654538D0042EF94 /* tab-mask.png */,
 				D34336A9165439FB00B153CE /* gbr-background-crop.jpg */,
 				AC2703C41653E0A800E6A005 /* gbr-docmanager-open.png */,
 				D3ED1A011652D48A006CF330 /* Wibrary-Info.plist */,
@@ -340,6 +356,8 @@
 				D34336A1165432F900B153CE /* AQGridSelectionGreen.png in Resources */,
 				D34336A2165432F900B153CE /* AQGridSelectionRed.png in Resources */,
 				D34336AA165439FB00B153CE /* gbr-background-crop.jpg in Resources */,
+				D3CAAE991654538D0042EF94 /* tab-mask.png in Resources */,
+				D3CAAE9F165459810042EF94 /* gbr-ppt.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +387,8 @@
 				D343369C165432F900B153CE /* NSIndexSet+AQIsSetContiguous.m in Sources */,
 				D343369D165432F900B153CE /* UIColor+AQGridView.m in Sources */,
 				D34336A8165433F000B153CE /* GridViewCell.m in Sources */,
+				D3CAAE9D1654572C0042EF94 /* GridViewController.m in Sources */,
+				D3CAAEA216545D9B0042EF94 /* DocumentService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
