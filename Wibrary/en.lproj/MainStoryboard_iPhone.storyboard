@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8Jr-K4-T7O">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
     </dependencies>
@@ -9,18 +9,152 @@
             <objects>
                 <viewController id="2" customClass="WibraryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="gbr-background-crop.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="gky-Pz-aRs">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="539" id="48X-R8-cBo"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hje-LT-Ilb">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="117" id="TJD-xB-qDg"/>
+                                    <constraint firstAttribute="height" constant="117" id="x4G-fM-pnt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                <state key="normal" title="Button" image="gbr-docmanager-open.png">
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="AQGridSelectionRed.png"/>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BzF-CX-TsG" kind="push" id="rIS-LZ-PeL"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.86274516580000005" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="gky-Pz-aRs" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="ea0-ZR-UQr"/>
+                            <constraint firstItem="gky-Pz-aRs" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="ksL-U7-CKr"/>
+                            <constraint firstItem="Hje-LT-Ilb" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" type="default" id="q4G-Wb-yxO"/>
+                            <constraint firstItem="gky-Pz-aRs" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="qFB-yw-odq"/>
+                            <constraint firstItem="gky-Pz-aRs" firstAttribute="centerX" secondItem="Hje-LT-Ilb" secondAttribute="centerX" type="default" id="qmN-AD-cpA"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="JDs-O7-B66"/>
+                    <connections>
+                        <outlet property="docManagerButton" destination="Hje-LT-Ilb" id="dPC-Dc-Cbq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="645" y="-158"/>
+        </scene>
+        <!--View Controller - Item 2-->
+        <scene sceneID="tp3-Kn-mmm">
+            <objects>
+                <viewController id="4gT-VH-his" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hk8-Aq-Jpg">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="gbr-background-crop.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Wpf-pw-xub"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Wpf-pw-xub" firstAttribute="trailing" secondItem="Hk8-Aq-Jpg" secondAttribute="trailing" type="default" id="HsD-eT-KLU"/>
+                            <constraint firstItem="Wpf-pw-xub" firstAttribute="leading" secondItem="Hk8-Aq-Jpg" secondAttribute="leading" type="default" id="LzI-eN-9Zo"/>
+                            <constraint firstItem="Wpf-pw-xub" firstAttribute="top" secondItem="Hk8-Aq-Jpg" secondAttribute="top" type="default" id="mXy-NG-6Gn"/>
+                            <constraint firstItem="Wpf-pw-xub" firstAttribute="bottom" secondItem="Hk8-Aq-Jpg" secondAttribute="bottom" type="default" id="uud-wz-Q4z"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="INo-mp-6tW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y1i-dc-ytw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1611" y="168"/>
+        </scene>
+        <!--View Controller - Item 1-->
+        <scene sceneID="wMp-eg-MLP">
+            <objects>
+                <viewController id="F5l-3P-7L6" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JAh-h5-ZuW">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="gbr-background-crop.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="BoR-kt-apo"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BoR-kt-apo" firstAttribute="trailing" secondItem="JAh-h5-ZuW" secondAttribute="trailing" type="default" id="0AP-Yd-KH3"/>
+                            <constraint firstItem="BoR-kt-apo" firstAttribute="top" secondItem="JAh-h5-ZuW" secondAttribute="top" type="default" id="DOh-WQ-urp"/>
+                            <constraint firstItem="BoR-kt-apo" firstAttribute="leading" secondItem="JAh-h5-ZuW" secondAttribute="leading" type="default" id="TD3-WD-XHo"/>
+                            <constraint firstItem="BoR-kt-apo" firstAttribute="bottom" secondItem="JAh-h5-ZuW" secondAttribute="bottom" type="default" id="qcB-nZ-AA5"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="FMr-pt-Py5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5p3-NW-TZH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1611" y="-485"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="lFH-BM-kix">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="BzF-CX-TsG" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="YIX-J1-yED"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="i4k-Pp-PHd">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="F5l-3P-7L6" kind="relationship" relationship="viewControllers" id="OZG-gR-6dd"/>
+                        <segue destination="4gT-VH-his" kind="relationship" relationship="viewControllers" id="Pcx-o0-VGd"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bUO-a1-nt1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1080" y="-158"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1Sx-ja-gos">
+            <objects>
+                <navigationController id="8Jr-K4-T7O" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pjD-2w-bAZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2" kind="relationship" relationship="rootViewController" id="dn6-zu-Cwz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CMG-bo-Da3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="119" y="-158"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="AQGridSelectionRed.png" width="1" height="43"/>
+        <image name="gbr-background-crop.jpg" width="1534" height="1780"/>
+        <image name="gbr-docmanager-open.png" width="336" height="354"/>
+    </resources>
     <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
         <class className="WibraryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WibraryViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="docManagerButton" candidateClass="UIButton"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

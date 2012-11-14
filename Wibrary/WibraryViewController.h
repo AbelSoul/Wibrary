@@ -10,4 +10,6 @@
 
 @interface WibraryViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *docManagerButton;
+
 @end
