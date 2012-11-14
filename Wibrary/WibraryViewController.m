@@ -9,6 +9,10 @@
 #import "WibraryViewController.h"
 #import "WibraryConstants.h"
 
+// HTML parsing files
+#import "GBRFDocument.h"
+#import "TFHpple.h"
+
 @interface WibraryViewController ()
 {
     // a few ivars to keep track of the download
@@ -37,8 +41,30 @@
     NSData *goaHTMLData = [NSData dataWithContentsOfURL:goaPathURL];
     
     // create parser with download data
+    TFHpple *goaParser = [TFHpple hppleWithHTMLData:goaHTMLData];
     
-    [self downloadFile:GOA_FILENAME fromUrl:DOCUMENTS_URL toBeSavedInFolder:GOA_FOLDER];
+    // set up xpath query and have parser search using that query
+    NSArray *goaNodes = [goaParser searchWithXPathQuery:X_PATH_QUERY_STRING];
+    
+    // create array to hold document objects and loop through obtained nodes
+    NSMutableArray *goaDocumentsArray = [[NSMutableArray alloc] initWithCapacity:0];
+    
+    for (TFHppleElement *element in goaNodes) {
+        
+        // create new documentItem object and add to array
+        GBRFDocument *documentItem = [[GBRFDocument alloc] init];
+        [goaDocumentsArray addObject:documentItem];
+       
+        // retrieve document title from node's first child's contents
+        documentItem.title = [[element firstChild] content]; // prepends single space character (?)
+        
+        // create substring to remove space character
+        NSString *documentTitle = [documentItem.title substringWithRange:NSMakeRange(1, [documentItem.title length] -1)];
+        NSLog(@"title: %@", documentTitle);
+        
+        // call method to download files and save to folder
+        [self downloadFile:documentTitle fromUrl:DOCUMENTS_URL toBeSavedInFolder:GOA_FOLDER];
+    }
 }
 
 - (void)getRosteringFiles

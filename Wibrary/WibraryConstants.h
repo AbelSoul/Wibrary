@@ -9,8 +9,11 @@
 #ifndef Wibrary_WibraryConstants_h
 #define Wibrary_WibraryConstants_h
 
-// define document source URLs
+// define document source URL
 #define DOCUMENTS_URL @"http://abelsoul.fav.cc/Dox/FilesGBRF"
+
+// define HTML parsing X-Path string
+#define X_PATH_QUERY_STRING @"/html/body/ul/li/a"
 
 // define document filenames
 #define ROSTERING_FILENAME @"Scotland ATM Roster wc 30.9.12.doc"
