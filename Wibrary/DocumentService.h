@@ -12,9 +12,10 @@
 
 @property (nonatomic, copy) NSString* caption;
 @property (nonatomic, retain) UIImage* image;
+@property (nonatomic, retain)NSURLRequest* myURLRequest;
 
 
--(id)initWithCaption:(NSString*)theCaption andImage:(UIImage*)theImage;
+-(id)initWithCaption:(NSString*)theCaption andImage:(UIImage*)theImage andURLRequest:(NSURLRequest *) theURLRequest;
 
 +(NSArray*)getDocumentData;
 

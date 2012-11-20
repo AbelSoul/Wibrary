@@ -29,23 +29,88 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // call method to log into server
+    [self loginToServer];
 
     // call methods to retrieve documents
 //    [self getAppendicesFiles];
-    [self getDiagramsFiles];
+//    [self getDiagramsFiles];
 //    [self getGOAFiles];
 //    [self getManualFiles];
 //    [self getNoticesMonsFiles];
 //    [self getNoticesPonsFiles];
 //    [self getNoticesUonsFiles];
 //    [self getNoticesWonsFiles];
-    [self getPinkFiles];
-    [self getRosteringFiles];
-//    [self getRuleBookFiles];
+//    [self getPinkFiles];
+//    [self getRosteringFiles];
+//    [self getRuleBookFiles]; 
 }
+
+- (NSString *)loginToServer
+{
+    // try connecting to server
+    NSString *userName = @"test";
+    NSString *passWord = @"test";
+    NSString *post = [NSString stringWithFormat:@"userName=%@&password=%@", userName, passWord];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+    NSString *serverURLString = @"http://192.168.0.89/WebService.asmx/login?";
+    NSURL *serverURL = [NSURL URLWithString:serverURLString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:serverURL];
+    [request setHTTPMethod:@"POST"];
+    [request addValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setHTTPBody:postData];
+    
+    NSHTTPURLResponse *urlResponse = nil;
+    NSError *error = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+    if (responseData)
+    {
+    NSString *sessionID = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    NSLog(@"result = %@", sessionID);
+    // ^ end try connecting to server ^
+    
+    // call method to create file for sending to server to compare files
+    [self compareFilesWithServer:sessionID];
+    
+    return sessionID;
+    }
+    else{
+        NSLog(@"connection failed");
+    return @"connection error";
+    }
+}
+
+- (void)compareFilesWithServer:(NSString *)sessionID
+{
+    NSString *iPadFilesList = @"test";
+    NSString *post = [NSString stringWithFormat:@"sessionID=%@&fileList=%@", sessionID, iPadFilesList];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    NSURL *comparisonURL = [NSURL URLWithString: SERVER_COMPARE_URL_STRING];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:comparisonURL];
+    [request setHTTPMethod:@"POST"];
+    [request addValue:postLength forHTTPHeaderField:@"Content-Length"];
+    
+    NSHTTPURLResponse *urlResponse = nil;
+    NSError *error = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+    
+    NSString *comparisonResponse = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"comparison method response = %@", comparisonResponse);
+    
+    // call method to retrieve document files
+    
+}
+
 
 - (void)getAppendicesFiles
 {
+       
+    
     // create path to appendix folder by combining URL with folder name
     NSURL *appendixPathURL =[NSURL URLWithString:DOCUMENTS_URL APPENDICES_FOLDER];
     NSLog(@"appendix url: %@", appendixPathURL);
@@ -80,8 +145,60 @@
     }
 }
 
+
 - (void)getDiagramsFiles
 {
+    // create authentication strings
+    NSString *userName = @"test";
+//    NSString *password = @"test";
+    
+    // create post string and retrieve length
+    NSString *post = [NSString stringWithFormat:@"username=%@", userName];
+    NSLog(@"post : %@", post);
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    NSLog(@"post length = %@", postLength);
+    
+    
+    // try to connect to asp server
+    NSString *serverURLString = @"http://192.168.0.89/WebService.asmx/login?";
+    NSURL *serverURL = [NSURL URLWithString:serverURLString];
+    NSLog(@"server url : %@", serverURL);
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:serverURL];
+    [request setHTTPMethod:@"POST"];
+    
+//    NSString *json = @"{}";
+//    NSMutableData *body = [[NSMutableData alloc] init];
+    
+    [request addValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setHTTPBody:postData];
+    
+    // get repsonse
+    NSHTTPURLResponse *urlResponse = nil;
+    NSError *error = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+    NSLog(@"response data length = %@", responseData);
+    NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    NSLog(@"response code = %d", [urlResponse statusCode]);
+    
+    
+
+    
+    if ([urlResponse statusCode] >= 200 && [urlResponse statusCode] <300)
+    {
+        NSLog(@"Response: %@ - end response", result);
+    }
+    
+    [request addValue:@"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    [request addValue:@"http://192.168.0.89/GBRF.aspx/login" forHTTPHeaderField:@"SOAPAction"];
+    
+    
+    
+    //    [request setValue:@"test" forKey:@"userName"];
+    //    [request setValue:@"test" forKey:@"password"];
+    
+    
+    
     NSURL *docPathURL =[NSURL URLWithString:DOCUMENTS_URL DIAGRAMS_FOLDER];
     NSData *docsHTMLData = [NSData dataWithContentsOfURL:docPathURL];
     
@@ -328,6 +445,7 @@
         connection            = [NSURLConnection connectionWithRequest:request
                                                               delegate:self];
         NSAssert(connection, @"Connection creation failed");
+        
     }
 }
 

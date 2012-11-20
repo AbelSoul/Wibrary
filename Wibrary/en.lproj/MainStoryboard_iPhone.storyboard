@@ -19,8 +19,8 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hje-LT-Ilb">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="117" id="TJD-xB-qDg"/>
-                                    <constraint firstAttribute="height" constant="117" id="x4G-fM-pnt"/>
+                                    <constraint firstAttribute="width" constant="98" id="c2m-Em-gw9"/>
+                                    <constraint firstAttribute="height" constant="97" id="x55-72-Pma"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" title="Button" image="gbr-docmanager-open.png">
@@ -38,11 +38,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.86274516580000005" blue="0.97254908080000002" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
+                            <constraint firstItem="Hje-LT-Ilb" firstAttribute="centerX" secondItem="gky-Pz-aRs" secondAttribute="centerX" type="default" id="0Si-DC-icK"/>
+                            <constraint firstItem="Hje-LT-Ilb" firstAttribute="centerY" secondItem="gky-Pz-aRs" secondAttribute="centerY" type="default" id="bjt-Kc-Vi0"/>
                             <constraint firstItem="gky-Pz-aRs" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="ea0-ZR-UQr"/>
                             <constraint firstItem="gky-Pz-aRs" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="ksL-U7-CKr"/>
-                            <constraint firstItem="Hje-LT-Ilb" firstAttribute="centerY" secondItem="3" secondAttribute="centerY" type="default" id="q4G-Wb-yxO"/>
                             <constraint firstItem="gky-Pz-aRs" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="qFB-yw-odq"/>
-                            <constraint firstItem="gky-Pz-aRs" firstAttribute="centerX" secondItem="Hje-LT-Ilb" secondAttribute="centerX" type="default" id="qmN-AD-cpA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JDs-O7-B66"/>
@@ -97,10 +97,28 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="FMr-pt-Py5"/>
+                    <connections>
+                        <segue destination="kR9-gS-SHg" kind="push" identifier="detail" id="xRH-kn-MwB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5p3-NW-TZH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1611" y="-485"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="bTT-4k-jXO">
+            <objects>
+                <viewController id="kR9-gS-SHg" customClass="DetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lzb-fY-1Wu">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.92549026010000002" blue="0.87058830259999997" alpha="1" colorSpace="deviceRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zSk-1l-t0S"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5mx-bf-9hj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2074" y="-494"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="lFH-BM-kix">
@@ -146,30 +164,6 @@
         <image name="gbr-background-crop.jpg" width="1534" height="1780"/>
         <image name="gbr-docmanager-open.png" width="336" height="354"/>
     </resources>
-    <classes>
-        <class className="AQGridView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AQGridView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dataSource"/>
-                <relationship kind="outlet" name="delegate"/>
-            </relationships>
-        </class>
-        <class className="GridViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GridViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="gridView" candidateClass="AQGridView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="WibraryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WibraryViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="docManagerButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

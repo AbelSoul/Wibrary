@@ -24,7 +24,6 @@
         [mainView setBackgroundColor:[UIColor clearColor]];
         
         UIImageView *frameImageView = [[UIImageView alloc] initWithFrame:CGRectMake(9, 4, 142, 117)];
-//        [frameImageView setImage:[UIImage imageNamed:@"tab-mask.png"]];
         self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(13, 18, 67, 52)];
         self.captionLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, 72, 67, 21)];
         [mainView addSubview:_imageView];

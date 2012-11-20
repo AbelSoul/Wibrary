@@ -9,6 +9,8 @@
 #import "GridViewController.h"
 #import "GridViewCell.h"
 #import "DocumentService.h"
+#import "DetailViewController.h"
+#import "AQGridView.h"
 
 @implementation GridViewController
 
@@ -29,6 +31,7 @@
     self.myDocumentViews = [DocumentService getDocumentData];
     
     [self.view addSubview:_gridView];
+    
     [self.gridView reloadData];
 }
 
@@ -51,6 +54,20 @@
     [cell.imageView setImage:service.image];
     [cell.captionLabel setText:service.caption];
     return cell;
+}
+
+-(void)gridView:(AQGridView *)gridView didSelectItemAtIndex:(NSUInteger)index
+{
+    [self performSegueWithIdentifier:@"detail" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    DetailViewController *detail = segue.destinationViewController;
+    
+    DocumentService *service = [_myDocumentViews objectAtIndex:[_gridView indexOfSelectedItem]];
+    
+    detail.service = service;
 }
 
 @end
