@@ -18,6 +18,23 @@
 		AC2703BF1653B70A00E6A005 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AC2703BE1653B70A00E6A005 /* libxml2.dylib */; };
 		AC2703C51653E0A800E6A005 /* gbr-docmanager-open.png in Resources */ = {isa = PBXBuildFile; fileRef = AC2703C41653E0A800E6A005 /* gbr-docmanager-open.png */; };
 		AC9EFBAE165BE57F005D70FD /* Assignment1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = AC9EFBAD165BE57F005D70FD /* Assignment1.pdf */; };
+		ACB64D5D165CD3DA002098BA /* gbr-background-logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ACB64D5C165CD3DA002098BA /* gbr-background-logo.jpg */; };
+		ACB64D60165CD464002098BA /* gbr-bookshelf-line.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB64D5F165CD464002098BA /* gbr-bookshelf-line.png */; };
+		ACB64D62165CD476002098BA /* gbr-diagrams-open.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB64D61165CD476002098BA /* gbr-diagrams-open.png */; };
+		ACB64D66165CD4BA002098BA /* gbr-docmanager-over.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB64D63165CD4BA002098BA /* gbr-docmanager-over.png */; };
+		ACB64D67165CD4BA002098BA /* gbr-exit-off.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB64D64165CD4BA002098BA /* gbr-exit-off.png */; };
+		ACB64D68165CD4BA002098BA /* gbr-exit-open.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB64D65165CD4BA002098BA /* gbr-exit-open.png */; };
+		ACB64D6A165CD4E9002098BA /* gbr-home-summarybar.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB64D69165CD4E9002098BA /* gbr-home-summarybar.png */; };
+		ACB64D6C165CD4FA002098BA /* GBR-Icon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB64D6B165CD4FA002098BA /* GBR-Icon-57.png */; };
+		ACB64D6E165CD50A002098BA /* GBR-Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB64D6D165CD50A002098BA /* GBR-Icon-144.png */; };
+		ACB64D70165CD525002098BA /* GBR-Icon-crop1.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB64D6F165CD525002098BA /* GBR-Icon-crop1.png */; };
+		ACB64D72165CD546002098BA /* gbr-newrecentlyupdated-open.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB64D71165CD546002098BA /* gbr-newrecentlyupdated-open.png */; };
+		ACB64D74165CD55A002098BA /* gbr-notices-open.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB64D73165CD55A002098BA /* gbr-notices-open.png */; };
+		ACB64D76165CD57C002098BA /* gbr-pinkpages-open.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB64D75165CD57C002098BA /* gbr-pinkpages-open.png */; };
+		ACB64D78165CD591002098BA /* gbr-rostering-open.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB64D77165CD591002098BA /* gbr-rostering-open.png */; };
+		ACB64D7A165CD5A8002098BA /* gbr-rulebook-open.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB64D79165CD5A8002098BA /* gbr-rulebook-open.png */; };
+		ACB64D7C165CD5C5002098BA /* gbr-sectionappendices-open.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB64D7B165CD5C5002098BA /* gbr-sectionappendices-open.png */; };
+		ACB64D7E165CD5D9002098BA /* gbr-workingmanual-open.png in Resources */ = {isa = PBXBuildFile; fileRef = ACB64D7D165CD5D9002098BA /* gbr-workingmanual-open.png */; };
 		D3433694165432F900B153CE /* AQGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = D343367A165432F900B153CE /* AQGridView.m */; };
 		D3433695165432F900B153CE /* AQGridViewAnimatorItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D343367C165432F900B153CE /* AQGridViewAnimatorItem.m */; };
 		D3433696165432F900B153CE /* AQGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D343367F165432F900B153CE /* AQGridViewCell.m */; };
@@ -74,6 +91,23 @@
 		AC2703BE1653B70A00E6A005 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		AC2703C41653E0A800E6A005 /* gbr-docmanager-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gbr-docmanager-open.png"; sourceTree = "<group>"; };
 		AC9EFBAD165BE57F005D70FD /* Assignment1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Assignment1.pdf; sourceTree = "<group>"; };
+		ACB64D5C165CD3DA002098BA /* gbr-background-logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "gbr-background-logo.jpg"; sourceTree = "<group>"; };
+		ACB64D5F165CD464002098BA /* gbr-bookshelf-line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gbr-bookshelf-line.png"; sourceTree = "<group>"; };
+		ACB64D61165CD476002098BA /* gbr-diagrams-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gbr-diagrams-open.png"; sourceTree = "<group>"; };
+		ACB64D63165CD4BA002098BA /* gbr-docmanager-over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gbr-docmanager-over.png"; sourceTree = "<group>"; };
+		ACB64D64165CD4BA002098BA /* gbr-exit-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gbr-exit-off.png"; sourceTree = "<group>"; };
+		ACB64D65165CD4BA002098BA /* gbr-exit-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gbr-exit-open.png"; sourceTree = "<group>"; };
+		ACB64D69165CD4E9002098BA /* gbr-home-summarybar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gbr-home-summarybar.png"; sourceTree = "<group>"; };
+		ACB64D6B165CD4FA002098BA /* GBR-Icon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GBR-Icon-57.png"; sourceTree = "<group>"; };
+		ACB64D6D165CD50A002098BA /* GBR-Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GBR-Icon-144.png"; sourceTree = "<group>"; };
+		ACB64D6F165CD525002098BA /* GBR-Icon-crop1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GBR-Icon-crop1.png"; sourceTree = "<group>"; };
+		ACB64D71165CD546002098BA /* gbr-newrecentlyupdated-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gbr-newrecentlyupdated-open.png"; sourceTree = "<group>"; };
+		ACB64D73165CD55A002098BA /* gbr-notices-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gbr-notices-open.png"; sourceTree = "<group>"; };
+		ACB64D75165CD57C002098BA /* gbr-pinkpages-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gbr-pinkpages-open.png"; sourceTree = "<group>"; };
+		ACB64D77165CD591002098BA /* gbr-rostering-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gbr-rostering-open.png"; sourceTree = "<group>"; };
+		ACB64D79165CD5A8002098BA /* gbr-rulebook-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gbr-rulebook-open.png"; sourceTree = "<group>"; };
+		ACB64D7B165CD5C5002098BA /* gbr-sectionappendices-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gbr-sectionappendices-open.png"; sourceTree = "<group>"; };
+		ACB64D7D165CD5D9002098BA /* gbr-workingmanual-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gbr-workingmanual-open.png"; sourceTree = "<group>"; };
 		D3433677165432F900B153CE /* AQGridView+CellLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLayout.h"; sourceTree = "<group>"; };
 		D3433678165432F900B153CE /* AQGridView+CellLocationDelegation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AQGridView+CellLocationDelegation.h"; sourceTree = "<group>"; };
 		D3433679165432F900B153CE /* AQGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AQGridView.h; sourceTree = "<group>"; };
@@ -291,6 +325,23 @@
 		D3ED1A001652D48A006CF330 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ACB64D7D165CD5D9002098BA /* gbr-workingmanual-open.png */,
+				ACB64D7B165CD5C5002098BA /* gbr-sectionappendices-open.png */,
+				ACB64D79165CD5A8002098BA /* gbr-rulebook-open.png */,
+				ACB64D77165CD591002098BA /* gbr-rostering-open.png */,
+				ACB64D75165CD57C002098BA /* gbr-pinkpages-open.png */,
+				ACB64D73165CD55A002098BA /* gbr-notices-open.png */,
+				ACB64D71165CD546002098BA /* gbr-newrecentlyupdated-open.png */,
+				ACB64D6F165CD525002098BA /* GBR-Icon-crop1.png */,
+				ACB64D6D165CD50A002098BA /* GBR-Icon-144.png */,
+				ACB64D6B165CD4FA002098BA /* GBR-Icon-57.png */,
+				ACB64D69165CD4E9002098BA /* gbr-home-summarybar.png */,
+				ACB64D63165CD4BA002098BA /* gbr-docmanager-over.png */,
+				ACB64D64165CD4BA002098BA /* gbr-exit-off.png */,
+				ACB64D65165CD4BA002098BA /* gbr-exit-open.png */,
+				ACB64D61165CD476002098BA /* gbr-diagrams-open.png */,
+				ACB64D5F165CD464002098BA /* gbr-bookshelf-line.png */,
+				ACB64D5C165CD3DA002098BA /* gbr-background-logo.jpg */,
 				AC9EFBAD165BE57F005D70FD /* Assignment1.pdf */,
 				D3FF185F165B04B9005D603A /* test.pdf */,
 				D3FF185D165B0486005D603A /* sonar_practical_2.pdf */,
@@ -383,6 +434,23 @@
 				D3FF185E165B0486005D603A /* sonar_practical_2.pdf in Resources */,
 				D3FF1860165B04B9005D603A /* test.pdf in Resources */,
 				AC9EFBAE165BE57F005D70FD /* Assignment1.pdf in Resources */,
+				ACB64D5D165CD3DA002098BA /* gbr-background-logo.jpg in Resources */,
+				ACB64D60165CD464002098BA /* gbr-bookshelf-line.png in Resources */,
+				ACB64D62165CD476002098BA /* gbr-diagrams-open.png in Resources */,
+				ACB64D66165CD4BA002098BA /* gbr-docmanager-over.png in Resources */,
+				ACB64D67165CD4BA002098BA /* gbr-exit-off.png in Resources */,
+				ACB64D68165CD4BA002098BA /* gbr-exit-open.png in Resources */,
+				ACB64D6A165CD4E9002098BA /* gbr-home-summarybar.png in Resources */,
+				ACB64D6C165CD4FA002098BA /* GBR-Icon-57.png in Resources */,
+				ACB64D6E165CD50A002098BA /* GBR-Icon-144.png in Resources */,
+				ACB64D70165CD525002098BA /* GBR-Icon-crop1.png in Resources */,
+				ACB64D72165CD546002098BA /* gbr-newrecentlyupdated-open.png in Resources */,
+				ACB64D74165CD55A002098BA /* gbr-notices-open.png in Resources */,
+				ACB64D76165CD57C002098BA /* gbr-pinkpages-open.png in Resources */,
+				ACB64D78165CD591002098BA /* gbr-rostering-open.png in Resources */,
+				ACB64D7A165CD5A8002098BA /* gbr-rulebook-open.png in Resources */,
+				ACB64D7C165CD5C5002098BA /* gbr-sectionappendices-open.png in Resources */,
+				ACB64D7E165CD5D9002098BA /* gbr-workingmanual-open.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

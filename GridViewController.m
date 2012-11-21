@@ -21,7 +21,7 @@
 {
     [super viewDidLoad];
     
-    self.gridView = [[AQGridView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    self.gridView = [[AQGridView alloc] initWithFrame:CGRectMake(16, 140, 688, 872)];
     self.gridView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     self.gridView.autoresizesSubviews = YES;
     
@@ -46,7 +46,7 @@
     GridViewCell * cell = (GridViewCell *)[aGridView dequeueReusableCellWithIdentifier:@"PlainCellIdentifier"];
     if ( cell == nil )
     {
-        cell = [[GridViewCell alloc] initWithFrame: CGRectMake(0.0, 0.0, 160, 123)
+        cell = [[GridViewCell alloc] initWithFrame: CGRectMake(0.0, 0.0, 80, 192)
                                    reuseIdentifier: PlainCellIdentifier];
     }
     DocumentService *service = [_myDocumentViews objectAtIndex:index];
@@ -54,6 +54,12 @@
     [cell.imageView setImage:service.image];
     [cell.captionLabel setText:service.caption];
     return cell;
+}
+
+// sets grid position constraints
+- (CGSize)portraitGridCellSizeForGridView: (AQGridView *) aGridView
+{
+    return ( CGSizeMake(125, 131) );
 }
 
 -(void)gridView:(AQGridView *)gridView didSelectItemAtIndex:(NSUInteger)index

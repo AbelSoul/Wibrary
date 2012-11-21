@@ -14,8 +14,8 @@
 
 // define server URLstrings
 #define SERVER_LOGIN_URL_STRING @"http://192.168.0.89/WebService.asmx/login"
-#define SERVER_COMPARE_URL_STRING @"http://192.168.0.89/WebService.asmx/checkFiles"
-#define SERVER_GET_FILE_URL_STRING @"http://192.168.0.89/WebService.asmx/getFiles"
+#define SERVER_COMPARE_URL_STRING @"http://192.168.0.89/WebService.asmx/checkFiles?"
+#define SERVER_GET_FILE_URL_STRING @"http://192.168.0.89/WebService.asmx/getFile"
 #define SERVER_GET_ALL_FILES_URL_STRING @"http://192.168.0.89/WebService.asmx/getAllFiles"
 
 // define HTML parsing X-Path string

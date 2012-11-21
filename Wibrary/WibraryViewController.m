@@ -34,7 +34,7 @@
     [self loginToServer];
 
     // call methods to retrieve documents
-//    [self getAppendicesFiles];
+    [self getAppendicesFiles];
 //    [self getDiagramsFiles];
 //    [self getGOAFiles];
 //    [self getManualFiles];
@@ -43,11 +43,11 @@
 //    [self getNoticesUonsFiles];
 //    [self getNoticesWonsFiles];
 //    [self getPinkFiles];
-//    [self getRosteringFiles];
-//    [self getRuleBookFiles]; 
+    [self getRosteringFiles];
+//    [self getRuleBookFiles];
 }
 
-- (NSString *)loginToServer
+- (void)loginToServer
 {
     // try connecting to server
     NSString *userName = @"test";
@@ -56,7 +56,7 @@
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
-    NSString *serverURLString = @"http://192.168.0.89/WebService.asmx/login?";
+    NSString *serverURLString = SERVER_LOGIN_URL_STRING;
     NSURL *serverURL = [NSURL URLWithString:serverURLString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:serverURL];
     [request setHTTPMethod:@"POST"];
@@ -66,54 +66,125 @@
     NSHTTPURLResponse *urlResponse = nil;
     NSError *error = nil;
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
-    if (responseData)
-    {
+
     NSString *sessionID = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
     NSLog(@"result = %@", sessionID);
     // ^ end try connecting to server ^
     
     // call method to create file for sending to server to compare files
-    [self compareFilesWithServer:sessionID];
-    
-    return sessionID;
-    }
-    else{
-        NSLog(@"connection failed");
-    return @"connection error";
-    }
+    [self checkFiles ];//]:sessionID];
 }
 
-- (void)compareFilesWithServer:(NSString *)sessionID
+- (void)checkFiles//:(NSString *)sessionID
 {
-    NSString *iPadFilesList = @"test";
-    NSString *post = [NSString stringWithFormat:@"sessionID=%@&fileList=%@", sessionID, iPadFilesList];
+    // try connecting to server
+    NSString *seshID = @"test";
+    NSMutableString *fileList = [[NSMutableString alloc] init];
+    
+    // get contents of app doc directory
+    NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [directoryPaths objectAtIndex:0];
+    NSError *error = nil;
+    NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:&error];
+    
+    NSLog(@"contents of app's document folder = %@", directoryContent);
+    
+    // create string to sub folders
+    NSString *myFolder;
+   
+    
+    myFolder = [documentsDirectory stringByAppendingPathComponent:@"Rostering"];
+    NSLog(@"rostering at: %@", myFolder);
+
+    
+    NSArray *folderContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:myFolder error:&error];
+    NSLog(@"contetns of rostering folder: %@", folderContents);
+
+    for (NSString *folder in folderContents)
+    {
+        [fileList appendString:[NSString stringWithFormat:@"%@,",  folder]];
+    }
+    NSLog(@"file list = %@", fileList);
+    
+    NSString *post = [NSString stringWithFormat:@"sessionID=%@&fileList=%@", seshID, fileList];
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-    NSURL *comparisonURL = [NSURL URLWithString: SERVER_COMPARE_URL_STRING];
+    
+    NSString *comparisonURLString = SERVER_COMPARE_URL_STRING;
+    NSURL *comparisonURL = [NSURL URLWithString:comparisonURLString];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:comparisonURL];
     [request setHTTPMethod:@"POST"];
     [request addValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setHTTPBody:postData];
+    
+    NSHTTPURLResponse *urlResponse = nil;
+    error = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+    
+    NSString *sessionID = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    NSLog(@"CHECK FILES result = %@", sessionID);
+    // ^ end try connecting to server ^
+    
+    [self getFilesFromServer];
+}
+
+- (void)getFilesFromServer
+{
+    // try connecting to server
+    NSString *seshID = @"test";
+    NSString *fileName = @"test string representing file name parameter";
+    
+    NSString *post = [NSString stringWithFormat:@"sessionID=%@&fileNAME=%@", seshID, fileName];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+    NSString *comparisonURLString = SERVER_GET_FILE_URL_STRING;
+    NSURL *comparisonURL = [NSURL URLWithString:comparisonURLString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:comparisonURL];
+    [request setHTTPMethod:@"POST"];
+    [request addValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setHTTPBody:postData];
     
     NSHTTPURLResponse *urlResponse = nil;
     NSError *error = nil;
     NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
     
-    NSString *comparisonResponse = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    NSString *sessionID = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    NSLog(@"result = %@", sessionID);
+    // ^ end try connecting to server ^
     
-    NSLog(@"comparison method response = %@", comparisonResponse);
-    
-    // call method to retrieve document files
-    
+    [self getAllFiles];
 }
 
+- (void) getAllFiles
+{
+    // try connecting to server
+    NSString *seshID = @"test";
+    
+    NSString *post = [NSString stringWithFormat:@"sessionID=%@", seshID];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+    NSString *comparisonURLString = SERVER_GET_ALL_FILES_URL_STRING;
+    NSURL *comparisonURL = [NSURL URLWithString:comparisonURLString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:comparisonURL];
+    [request setHTTPMethod:@"POST"];
+    [request addValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setHTTPBody:postData];
+    
+    NSHTTPURLResponse *urlResponse = nil;
+    NSError *error = nil;
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+    
+    NSString *sessionID = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    NSLog(@"get all files result = %@", sessionID);
+    // ^ end try connecting to server ^
+}
 
 - (void)getAppendicesFiles
 {
-       
-    
     // create path to appendix folder by combining URL with folder name
     NSURL *appendixPathURL =[NSURL URLWithString:DOCUMENTS_URL APPENDICES_FOLDER];
-    NSLog(@"appendix url: %@", appendixPathURL);
     
     // retrieve HTML data from url
     NSData *appendixHTMLData = [NSData dataWithContentsOfURL:appendixPathURL];
@@ -138,7 +209,6 @@
         
         // create substring to remove space character
         NSString *documentTitle = [documentItem.title substringWithRange:NSMakeRange(1, [documentItem.title length] -1)];
-//        NSLog(@"title: %@", documentTitle);
         
         // call method to download files and save to folder
         [self downloadFile:documentTitle fromUrl:DOCUMENTS_URL toBeSavedInFolder:APPENDICES_FOLDER];
@@ -146,232 +216,232 @@
 }
 
 
-- (void)getDiagramsFiles
-{
-    // create authentication strings
-    NSString *userName = @"test";
-//    NSString *password = @"test";
-    
-    // create post string and retrieve length
-    NSString *post = [NSString stringWithFormat:@"username=%@", userName];
-    NSLog(@"post : %@", post);
-    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-    NSLog(@"post length = %@", postLength);
-    
-    
-    // try to connect to asp server
-    NSString *serverURLString = @"http://192.168.0.89/WebService.asmx/login?";
-    NSURL *serverURL = [NSURL URLWithString:serverURLString];
-    NSLog(@"server url : %@", serverURL);
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:serverURL];
-    [request setHTTPMethod:@"POST"];
-    
-//    NSString *json = @"{}";
-//    NSMutableData *body = [[NSMutableData alloc] init];
-    
-    [request addValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setHTTPBody:postData];
-    
-    // get repsonse
-    NSHTTPURLResponse *urlResponse = nil;
-    NSError *error = nil;
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
-    NSLog(@"response data length = %@", responseData);
-    NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
-    NSLog(@"response code = %d", [urlResponse statusCode]);
-    
-    
-
-    
-    if ([urlResponse statusCode] >= 200 && [urlResponse statusCode] <300)
-    {
-        NSLog(@"Response: %@ - end response", result);
-    }
-    
-    [request addValue:@"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-    [request addValue:@"http://192.168.0.89/GBRF.aspx/login" forHTTPHeaderField:@"SOAPAction"];
-    
-    
-    
-    //    [request setValue:@"test" forKey:@"userName"];
-    //    [request setValue:@"test" forKey:@"password"];
-    
-    
-    
-    NSURL *docPathURL =[NSURL URLWithString:DOCUMENTS_URL DIAGRAMS_FOLDER];
-    NSData *docsHTMLData = [NSData dataWithContentsOfURL:docPathURL];
-    
-    TFHpple *doxParser = [TFHpple hppleWithHTMLData:docsHTMLData];
-    
-    NSArray *doxNodes = [doxParser searchWithXPathQuery:X_PATH_QUERY_STRING];
-    NSMutableArray *documentsArray = [[NSMutableArray alloc] initWithCapacity:0];
-    
-    for (TFHppleElement *element in doxNodes) {
-        
-        GBRFDocument *documentItem = [[GBRFDocument alloc] init];
-        [documentsArray addObject:documentItem];
-        documentItem.title = [[element firstChild] content]; // prepends single space character (?)
-        NSString *documentTitle = [documentItem.title substringWithRange:NSMakeRange(1, [documentItem.title length] -1)];
+//- (void)getDiagramsFiles
+//{
+//    // create authentication strings
+//    NSString *userName = @"test";
+////    NSString *password = @"test";
+//    
+//    // create post string and retrieve length
+//    NSString *post = [NSString stringWithFormat:@"username=%@", userName];
+//    NSLog(@"post : %@", post);
+//    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+//    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+//    NSLog(@"post length = %@", postLength);
+//    
+//    
+//    // try to connect to asp server
+//    NSString *serverURLString = @"http://192.168.0.89/WebService.asmx/login?";
+//    NSURL *serverURL = [NSURL URLWithString:serverURLString];
+//    NSLog(@"server url : %@", serverURL);
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:serverURL];
+//    [request setHTTPMethod:@"POST"];
+//    
+////    NSString *json = @"{}";
+////    NSMutableData *body = [[NSMutableData alloc] init];
+//    
+//    [request addValue:postLength forHTTPHeaderField:@"Content-Length"];
+//    [request setHTTPBody:postData];
+//    
+//    // get repsonse
+//    NSHTTPURLResponse *urlResponse = nil;
+//    NSError *error = nil;
+//    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&error];
+//    NSLog(@"response data length = %@", responseData);
+//    NSString *result = [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+//    NSLog(@"response code = %d", [urlResponse statusCode]);
+//    
+//    
+//
+//    
+//    if ([urlResponse statusCode] >= 200 && [urlResponse statusCode] <300)
+//    {
+//        NSLog(@"Response: %@ - end response", result);
+//    }
+//    
+//    [request addValue:@"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+//    [request addValue:@"http://192.168.0.89/GBRF.aspx/login" forHTTPHeaderField:@"SOAPAction"];
+//    
+//    
+//    
+//    //    [request setValue:@"test" forKey:@"userName"];
+//    //    [request setValue:@"test" forKey:@"password"];
+//    
+//    
+//    
+//    NSURL *docPathURL =[NSURL URLWithString:DOCUMENTS_URL DIAGRAMS_FOLDER];
+//    NSData *docsHTMLData = [NSData dataWithContentsOfURL:docPathURL];
+//    
+//    TFHpple *doxParser = [TFHpple hppleWithHTMLData:docsHTMLData];
+//    
+//    NSArray *doxNodes = [doxParser searchWithXPathQuery:X_PATH_QUERY_STRING];
+//    NSMutableArray *documentsArray = [[NSMutableArray alloc] initWithCapacity:0];
+//    
+//    for (TFHppleElement *element in doxNodes) {
+//        
+//        GBRFDocument *documentItem = [[GBRFDocument alloc] init];
+//        [documentsArray addObject:documentItem];
+//        documentItem.title = [[element firstChild] content]; // prepends single space character (?)
+//        NSString *documentTitle = [documentItem.title substringWithRange:NSMakeRange(1, [documentItem.title length] -1)];
+////        NSLog(@"title: %@", documentTitle);
+//        [self downloadFile:documentTitle fromUrl:DOCUMENTS_URL toBeSavedInFolder:DIAGRAMS_FOLDER];
+//    }
+//}
+//
+//- (void)getGOAFiles
+//{
+//    // create path to GOA folder by combining URL with folder name
+//    NSURL *goaPathURL =[NSURL URLWithString:DOCUMENTS_URL GOA_FOLDER];
+//    NSLog(@"goa url: %@", goaPathURL);    
+//    // retrieve HTML data from url
+//    NSData *goaHTMLData = [NSData dataWithContentsOfURL:goaPathURL];    
+//    // create parser with download data
+//    TFHpple *goaParser = [TFHpple hppleWithHTMLData:goaHTMLData];    
+//    // set up xpath query and have parser search using that query
+//    NSArray *goaNodes = [goaParser searchWithXPathQuery:X_PATH_QUERY_STRING];    
+//    // create array to hold document objects and loop through obtained nodes
+//    NSMutableArray *goaDocumentsArray = [[NSMutableArray alloc] initWithCapacity:0];    
+//    for (TFHppleElement *element in goaNodes) {
+//        
+//        // create new documentItem object and add to array
+//        GBRFDocument *documentItem = [[GBRFDocument alloc] init];
+//        [goaDocumentsArray addObject:documentItem];
+//        // retrieve document title from node's first child's contents
+//        documentItem.title = [[element firstChild] content]; // prepends single space character (?)
+//        // create substring to remove space character
+//        NSString *documentTitle = [documentItem.title substringWithRange:NSMakeRange(1, [documentItem.title length] -1)];
+//        NSLog(@"title: %@", documentTitle);        
+//        // call method to download files and save to folder
+//        [self downloadFile:documentTitle fromUrl:DOCUMENTS_URL toBeSavedInFolder:GOA_FOLDER];
+//    }
+//}
+//
+//- (void)getManualFiles
+//{
+//    NSURL *docPathURL =[NSURL URLWithString:DOCUMENTS_URL WORKING_MANUAL_FOLDER];
+//    NSData *docsHTMLData = [NSData dataWithContentsOfURL:docPathURL];
+//    NSLog(@"working manual dpURL: %@", docPathURL);
+//    TFHpple *doxParser = [TFHpple hppleWithHTMLData:docsHTMLData];
+//    
+//    NSArray *doxNodes = [doxParser searchWithXPathQuery:X_PATH_QUERY_STRING];
+//    NSMutableArray *documentsArray = [[NSMutableArray alloc] initWithCapacity:0];
+//    
+//    for (TFHppleElement *element in doxNodes) {
+//        
+//        GBRFDocument *documentItem = [[GBRFDocument alloc] init];
+//        [documentsArray addObject:documentItem];
+//        documentItem.title = [[element firstChild] content]; // prepends single space character (?)
+//        NSString *documentTitle = [documentItem.title substringWithRange:NSMakeRange(1, [documentItem.title length] -1)];
 //        NSLog(@"title: %@", documentTitle);
-        [self downloadFile:documentTitle fromUrl:DOCUMENTS_URL toBeSavedInFolder:DIAGRAMS_FOLDER];
-    }
-}
-
-- (void)getGOAFiles
-{
-    // create path to GOA folder by combining URL with folder name
-    NSURL *goaPathURL =[NSURL URLWithString:DOCUMENTS_URL GOA_FOLDER];
-    NSLog(@"goa url: %@", goaPathURL);    
-    // retrieve HTML data from url
-    NSData *goaHTMLData = [NSData dataWithContentsOfURL:goaPathURL];    
-    // create parser with download data
-    TFHpple *goaParser = [TFHpple hppleWithHTMLData:goaHTMLData];    
-    // set up xpath query and have parser search using that query
-    NSArray *goaNodes = [goaParser searchWithXPathQuery:X_PATH_QUERY_STRING];    
-    // create array to hold document objects and loop through obtained nodes
-    NSMutableArray *goaDocumentsArray = [[NSMutableArray alloc] initWithCapacity:0];    
-    for (TFHppleElement *element in goaNodes) {
-        
-        // create new documentItem object and add to array
-        GBRFDocument *documentItem = [[GBRFDocument alloc] init];
-        [goaDocumentsArray addObject:documentItem];
-        // retrieve document title from node's first child's contents
-        documentItem.title = [[element firstChild] content]; // prepends single space character (?)
-        // create substring to remove space character
-        NSString *documentTitle = [documentItem.title substringWithRange:NSMakeRange(1, [documentItem.title length] -1)];
-        NSLog(@"title: %@", documentTitle);        
-        // call method to download files and save to folder
-        [self downloadFile:documentTitle fromUrl:DOCUMENTS_URL toBeSavedInFolder:GOA_FOLDER];
-    }
-}
-
-- (void)getManualFiles
-{
-    NSURL *docPathURL =[NSURL URLWithString:DOCUMENTS_URL WORKING_MANUAL_FOLDER];
-    NSData *docsHTMLData = [NSData dataWithContentsOfURL:docPathURL];
-    NSLog(@"working manual dpURL: %@", docPathURL);
-    TFHpple *doxParser = [TFHpple hppleWithHTMLData:docsHTMLData];
-    
-    NSArray *doxNodes = [doxParser searchWithXPathQuery:X_PATH_QUERY_STRING];
-    NSMutableArray *documentsArray = [[NSMutableArray alloc] initWithCapacity:0];
-    
-    for (TFHppleElement *element in doxNodes) {
-        
-        GBRFDocument *documentItem = [[GBRFDocument alloc] init];
-        [documentsArray addObject:documentItem];
-        documentItem.title = [[element firstChild] content]; // prepends single space character (?)
-        NSString *documentTitle = [documentItem.title substringWithRange:NSMakeRange(1, [documentItem.title length] -1)];
-        NSLog(@"title: %@", documentTitle);
-        [self downloadFile:documentTitle fromUrl:DOCUMENTS_URL toBeSavedInFolder:WORKING_MANUAL_FOLDER];
-    }
-}
-
-- (void)getNoticesMonsFiles
-{
-    NSURL *docPathURL =[NSURL URLWithString:DOCUMENTS_URL NOTICES_MONS_FOLDER];
-    NSData *docsHTMLData = [NSData dataWithContentsOfURL:docPathURL];
-    
-    TFHpple *doxParser = [TFHpple hppleWithHTMLData:docsHTMLData];
-    
-    NSArray *doxNodes = [doxParser searchWithXPathQuery:X_PATH_QUERY_STRING];
-    NSMutableArray *documentsArray = [[NSMutableArray alloc] initWithCapacity:0];
-    
-    for (TFHppleElement *element in doxNodes) {
-        
-        GBRFDocument *documentItem = [[GBRFDocument alloc] init];
-        [documentsArray addObject:documentItem];
-        documentItem.title = [[element firstChild] content]; // prepends single space character (?)
-        NSString *documentTitle = [documentItem.title substringWithRange:NSMakeRange(1, [documentItem.title length] -1)];
-//        NSLog(@"title: %@", documentTitle);
-        [self downloadFile:documentTitle fromUrl:DOCUMENTS_URL toBeSavedInFolder:NOTICES_MONS_FOLDER];
-    }
-}
-
-- (void)getNoticesPonsFiles
-{
-    NSURL *docPathURL =[NSURL URLWithString:DOCUMENTS_URL NOTICES_PONS_FOLDER];
-    NSData *docsHTMLData = [NSData dataWithContentsOfURL:docPathURL];
-    
-    TFHpple *doxParser = [TFHpple hppleWithHTMLData:docsHTMLData];
-    
-    NSArray *doxNodes = [doxParser searchWithXPathQuery:X_PATH_QUERY_STRING];
-    NSMutableArray *documentsArray = [[NSMutableArray alloc] initWithCapacity:0];
-    
-    for (TFHppleElement *element in doxNodes) {
-        
-        GBRFDocument *documentItem = [[GBRFDocument alloc] init];
-        [documentsArray addObject:documentItem];
-        documentItem.title = [[element firstChild] content]; // prepends single space character (?)
-        NSString *documentTitle = [documentItem.title substringWithRange:NSMakeRange(1, [documentItem.title length] -1)];
-//        NSLog(@"title: %@", documentTitle);
-        [self downloadFile:documentTitle fromUrl:DOCUMENTS_URL toBeSavedInFolder:NOTICES_PONS_FOLDER];
-    }
-}
-
-- (void)getNoticesUonsFiles
-{
-    NSURL *docPathURL =[NSURL URLWithString:DOCUMENTS_URL NOTICES_UONS_FOLDER];
-    NSData *docsHTMLData = [NSData dataWithContentsOfURL:docPathURL];
-    
-    TFHpple *doxParser = [TFHpple hppleWithHTMLData:docsHTMLData];
-    
-    NSArray *doxNodes = [doxParser searchWithXPathQuery:X_PATH_QUERY_STRING];
-    NSMutableArray *documentsArray = [[NSMutableArray alloc] initWithCapacity:0];
-    
-    for (TFHppleElement *element in doxNodes) {
-        
-        GBRFDocument *documentItem = [[GBRFDocument alloc] init];
-        [documentsArray addObject:documentItem];
-        documentItem.title = [[element firstChild] content]; // prepends single space character (?)
-        NSString *documentTitle = [documentItem.title substringWithRange:NSMakeRange(1, [documentItem.title length] -1)];
-//        NSLog(@"title: %@", documentTitle);
-        [self downloadFile:documentTitle fromUrl:DOCUMENTS_URL toBeSavedInFolder:NOTICES_UONS_FOLDER];
-    }
-}
-
-- (void)getNoticesWonsFiles
-{
-    NSURL *docPathURL =[NSURL URLWithString:DOCUMENTS_URL NOTICES_WONS_FOLDER];
-    NSData *docsHTMLData = [NSData dataWithContentsOfURL:docPathURL];
-    
-    TFHpple *doxParser = [TFHpple hppleWithHTMLData:docsHTMLData];
-    
-    NSArray *doxNodes = [doxParser searchWithXPathQuery:X_PATH_QUERY_STRING];
-    NSMutableArray *documentsArray = [[NSMutableArray alloc] initWithCapacity:0];
-    
-    for (TFHppleElement *element in doxNodes) {
-        
-        GBRFDocument *documentItem = [[GBRFDocument alloc] init];
-        [documentsArray addObject:documentItem];
-        documentItem.title = [[element firstChild] content]; // prepends single space character (?)
-        NSString *documentTitle = [documentItem.title substringWithRange:NSMakeRange(1, [documentItem.title length] -1)];
-//        NSLog(@"title: %@", documentTitle);
-        [self downloadFile:documentTitle fromUrl:DOCUMENTS_URL toBeSavedInFolder:NOTICES_WONS_FOLDER];
-    }
-}
-
-
-- (void)getPinkFiles
-{
-    NSURL *docPathURL =[NSURL URLWithString:DOCUMENTS_URL PINK_PAGES_FOLDER];
-    NSData *docsHTMLData = [NSData dataWithContentsOfURL:docPathURL];
-    
-    TFHpple *doxParser = [TFHpple hppleWithHTMLData:docsHTMLData];
-    
-    NSArray *doxNodes = [doxParser searchWithXPathQuery:X_PATH_QUERY_STRING];
-    NSMutableArray *documentsArray = [[NSMutableArray alloc] initWithCapacity:0];
-    
-    for (TFHppleElement *element in doxNodes) {
-        
-        GBRFDocument *documentItem = [[GBRFDocument alloc] init];
-        [documentsArray addObject:documentItem];
-        documentItem.title = [[element firstChild] content]; // prepends single space character (?)
-        NSString *documentTitle = [documentItem.title substringWithRange:NSMakeRange(1, [documentItem.title length] -1)];
-//        NSLog(@"title: %@", documentTitle);
-        [self downloadFile:documentTitle fromUrl:DOCUMENTS_URL toBeSavedInFolder:PINK_PAGES_FOLDER];
-    }
-}
+//        [self downloadFile:documentTitle fromUrl:DOCUMENTS_URL toBeSavedInFolder:WORKING_MANUAL_FOLDER];
+//    }
+//}
+//
+//- (void)getNoticesMonsFiles
+//{
+//    NSURL *docPathURL =[NSURL URLWithString:DOCUMENTS_URL NOTICES_MONS_FOLDER];
+//    NSData *docsHTMLData = [NSData dataWithContentsOfURL:docPathURL];
+//    
+//    TFHpple *doxParser = [TFHpple hppleWithHTMLData:docsHTMLData];
+//    
+//    NSArray *doxNodes = [doxParser searchWithXPathQuery:X_PATH_QUERY_STRING];
+//    NSMutableArray *documentsArray = [[NSMutableArray alloc] initWithCapacity:0];
+//    
+//    for (TFHppleElement *element in doxNodes) {
+//        
+//        GBRFDocument *documentItem = [[GBRFDocument alloc] init];
+//        [documentsArray addObject:documentItem];
+//        documentItem.title = [[element firstChild] content]; // prepends single space character (?)
+//        NSString *documentTitle = [documentItem.title substringWithRange:NSMakeRange(1, [documentItem.title length] -1)];
+////        NSLog(@"title: %@", documentTitle);
+//        [self downloadFile:documentTitle fromUrl:DOCUMENTS_URL toBeSavedInFolder:NOTICES_MONS_FOLDER];
+//    }
+//}
+//
+//- (void)getNoticesPonsFiles
+//{
+//    NSURL *docPathURL =[NSURL URLWithString:DOCUMENTS_URL NOTICES_PONS_FOLDER];
+//    NSData *docsHTMLData = [NSData dataWithContentsOfURL:docPathURL];
+//    
+//    TFHpple *doxParser = [TFHpple hppleWithHTMLData:docsHTMLData];
+//    
+//    NSArray *doxNodes = [doxParser searchWithXPathQuery:X_PATH_QUERY_STRING];
+//    NSMutableArray *documentsArray = [[NSMutableArray alloc] initWithCapacity:0];
+//    
+//    for (TFHppleElement *element in doxNodes) {
+//        
+//        GBRFDocument *documentItem = [[GBRFDocument alloc] init];
+//        [documentsArray addObject:documentItem];
+//        documentItem.title = [[element firstChild] content]; // prepends single space character (?)
+//        NSString *documentTitle = [documentItem.title substringWithRange:NSMakeRange(1, [documentItem.title length] -1)];
+////        NSLog(@"title: %@", documentTitle);
+//        [self downloadFile:documentTitle fromUrl:DOCUMENTS_URL toBeSavedInFolder:NOTICES_PONS_FOLDER];
+//    }
+//}
+//
+//- (void)getNoticesUonsFiles
+//{
+//    NSURL *docPathURL =[NSURL URLWithString:DOCUMENTS_URL NOTICES_UONS_FOLDER];
+//    NSData *docsHTMLData = [NSData dataWithContentsOfURL:docPathURL];
+//    
+//    TFHpple *doxParser = [TFHpple hppleWithHTMLData:docsHTMLData];
+//    
+//    NSArray *doxNodes = [doxParser searchWithXPathQuery:X_PATH_QUERY_STRING];
+//    NSMutableArray *documentsArray = [[NSMutableArray alloc] initWithCapacity:0];
+//    
+//    for (TFHppleElement *element in doxNodes) {
+//        
+//        GBRFDocument *documentItem = [[GBRFDocument alloc] init];
+//        [documentsArray addObject:documentItem];
+//        documentItem.title = [[element firstChild] content]; // prepends single space character (?)
+//        NSString *documentTitle = [documentItem.title substringWithRange:NSMakeRange(1, [documentItem.title length] -1)];
+////        NSLog(@"title: %@", documentTitle);
+//        [self downloadFile:documentTitle fromUrl:DOCUMENTS_URL toBeSavedInFolder:NOTICES_UONS_FOLDER];
+//    }
+//}
+//
+//- (void)getNoticesWonsFiles
+//{
+//    NSURL *docPathURL =[NSURL URLWithString:DOCUMENTS_URL NOTICES_WONS_FOLDER];
+//    NSData *docsHTMLData = [NSData dataWithContentsOfURL:docPathURL];
+//    
+//    TFHpple *doxParser = [TFHpple hppleWithHTMLData:docsHTMLData];
+//    
+//    NSArray *doxNodes = [doxParser searchWithXPathQuery:X_PATH_QUERY_STRING];
+//    NSMutableArray *documentsArray = [[NSMutableArray alloc] initWithCapacity:0];
+//    
+//    for (TFHppleElement *element in doxNodes) {
+//        
+//        GBRFDocument *documentItem = [[GBRFDocument alloc] init];
+//        [documentsArray addObject:documentItem];
+//        documentItem.title = [[element firstChild] content]; // prepends single space character (?)
+//        NSString *documentTitle = [documentItem.title substringWithRange:NSMakeRange(1, [documentItem.title length] -1)];
+////        NSLog(@"title: %@", documentTitle);
+//        [self downloadFile:documentTitle fromUrl:DOCUMENTS_URL toBeSavedInFolder:NOTICES_WONS_FOLDER];
+//    }
+//}
+//
+//
+//- (void)getPinkFiles
+//{
+//    NSURL *docPathURL =[NSURL URLWithString:DOCUMENTS_URL PINK_PAGES_FOLDER];
+//    NSData *docsHTMLData = [NSData dataWithContentsOfURL:docPathURL];
+//    
+//    TFHpple *doxParser = [TFHpple hppleWithHTMLData:docsHTMLData];
+//    
+//    NSArray *doxNodes = [doxParser searchWithXPathQuery:X_PATH_QUERY_STRING];
+//    NSMutableArray *documentsArray = [[NSMutableArray alloc] initWithCapacity:0];
+//    
+//    for (TFHppleElement *element in doxNodes) {
+//        
+//        GBRFDocument *documentItem = [[GBRFDocument alloc] init];
+//        [documentsArray addObject:documentItem];
+//        documentItem.title = [[element firstChild] content]; // prepends single space character (?)
+//        NSString *documentTitle = [documentItem.title substringWithRange:NSMakeRange(1, [documentItem.title length] -1)];
+////        NSLog(@"title: %@", documentTitle);
+//        [self downloadFile:documentTitle fromUrl:DOCUMENTS_URL toBeSavedInFolder:PINK_PAGES_FOLDER];
+//    }
+//}
 
 - (void)getRosteringFiles
 {
@@ -389,31 +459,31 @@
         [documentsArray addObject:documentItem];
         documentItem.title = [[element firstChild] content]; // prepends single space character (?)
         NSString *documentTitle = [documentItem.title substringWithRange:NSMakeRange(1, [documentItem.title length] -1)];
-//        NSLog(@"title: %@", documentTitle);
+        NSLog(@"title: %@", documentTitle);
         [self downloadFile:documentTitle fromUrl:DOCUMENTS_URL toBeSavedInFolder:ROSTERING_FOLDER];
     }
 }
 
-- (void)getRuleBookFiles
-{
-    NSURL *docPathURL =[NSURL URLWithString:DOCUMENTS_URL RULE_BOOK_FOLDER];
-    NSData *docsHTMLData = [NSData dataWithContentsOfURL:docPathURL];
-    
-    TFHpple *doxParser = [TFHpple hppleWithHTMLData:docsHTMLData];
-    
-    NSArray *doxNodes = [doxParser searchWithXPathQuery:X_PATH_QUERY_STRING];
-    NSMutableArray *documentsArray = [[NSMutableArray alloc] initWithCapacity:0];
-    
-    for (TFHppleElement *element in doxNodes) {
-        
-        GBRFDocument *documentItem = [[GBRFDocument alloc] init];
-        [documentsArray addObject:documentItem];
-        documentItem.title = [[element firstChild] content]; // prepends single space character (?)
-        NSString *documentTitle = [documentItem.title substringWithRange:NSMakeRange(1, [documentItem.title length] -1)];
-//        NSLog(@"title: %@", documentTitle);
-        [self downloadFile:documentTitle fromUrl:DOCUMENTS_URL toBeSavedInFolder:RULE_BOOK_FOLDER];
-    }
-}
+//- (void)getRuleBookFiles
+//{
+//    NSURL *docPathURL =[NSURL URLWithString:DOCUMENTS_URL RULE_BOOK_FOLDER];
+//    NSData *docsHTMLData = [NSData dataWithContentsOfURL:docPathURL];
+//    
+//    TFHpple *doxParser = [TFHpple hppleWithHTMLData:docsHTMLData];
+//    
+//    NSArray *doxNodes = [doxParser searchWithXPathQuery:X_PATH_QUERY_STRING];
+//    NSMutableArray *documentsArray = [[NSMutableArray alloc] initWithCapacity:0];
+//    
+//    for (TFHppleElement *element in doxNodes) {
+//        
+//        GBRFDocument *documentItem = [[GBRFDocument alloc] init];
+//        [documentsArray addObject:documentItem];
+//        documentItem.title = [[element firstChild] content]; // prepends single space character (?)
+//        NSString *documentTitle = [documentItem.title substringWithRange:NSMakeRange(1, [documentItem.title length] -1)];
+////        NSLog(@"title: %@", documentTitle);
+//        [self downloadFile:documentTitle fromUrl:DOCUMENTS_URL toBeSavedInFolder:RULE_BOOK_FOLDER];
+//    }
+//}
 
 // method to initiate the download of the file
 - (void)downloadFile:(NSString *)filename fromUrl:(NSString *)urlString toBeSavedInFolder:(NSString *)destinationFolder
