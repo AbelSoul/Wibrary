@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WibraryViewController : UIViewController
+@interface WibraryViewController : UIViewController <UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *docManagerButton;
 

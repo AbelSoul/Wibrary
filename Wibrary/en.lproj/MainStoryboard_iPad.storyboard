@@ -17,18 +17,16 @@
                                     <constraint firstAttribute="height" constant="956" id="6Ox-yT-1Ny"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IEt-gg-38Y">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IEt-gg-38Y">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="123" id="3J5-SK-j58"/>
-                                    <constraint firstAttribute="width" constant="123" id="dAK-Qz-TDh"/>
+                                    <constraint firstAttribute="width" constant="165" id="uiy-0e-CG4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <color key="tintColor" red="0.55099931229999999" green="0.73031923129999998" blue="0.79698114809999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button" image="gbr-docmanager-open.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="highlighted" image="gbr-docmanager-open.png">
+                                <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -36,16 +34,64 @@
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Fex-1k-1kO"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmK-wE-csy">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="165" id="bgb-fj-T1x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button" image="gbr-remotesignoff-off.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ek2-kl-rZV">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="165" id="Kqx-zP-f0O"/>
+                                    <constraint firstAttribute="width" constant="165" id="dQR-pJ-1d3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button" image="gbr-atc-off.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a05-h1-B0Y">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="166" id="WxU-I7-y5R"/>
+                                    <constraint firstAttribute="width" constant="165" id="qEV-2b-9Wq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button" image="gbr-lunch-off.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Fex-1k-1kO" firstAttribute="centerX" secondItem="F9w-xm-1Hw" secondAttribute="centerX" type="default" id="3QT-gX-lEh"/>
-                            <constraint firstItem="Fex-1k-1kO" firstAttribute="centerY" secondItem="F9w-xm-1Hw" secondAttribute="centerY" type="default" id="I6W-q1-GMc"/>
+                            <constraint firstItem="Ek2-kl-rZV" firstAttribute="centerY" secondItem="Fex-1k-1kO" secondAttribute="centerY" type="default" id="3UJ-f0-b4V"/>
+                            <constraint firstAttribute="trailing" secondItem="tmK-wE-csy" secondAttribute="trailing" constant="208" id="62y-zi-j6Q"/>
+                            <constraint firstItem="Ek2-kl-rZV" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="8Vj-HL-Ebw"/>
+                            <constraint firstItem="Fex-1k-1kO" firstAttribute="centerY" secondItem="F9w-xm-1Hw" secondAttribute="centerY" type="default" id="A77-Xy-UQV"/>
+                            <constraint firstItem="tmK-wE-csy" firstAttribute="centerY" secondItem="5" secondAttribute="centerY" type="default" id="Ac7-Zj-xP1"/>
+                            <constraint firstItem="a05-h1-B0Y" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="207" id="FOj-mZ-CPc"/>
                             <constraint firstItem="F9w-xm-1Hw" firstAttribute="leading" secondItem="5" secondAttribute="leading" type="default" id="Ne3-BG-WXf"/>
-                            <constraint firstAttribute="trailing" secondItem="IEt-gg-38Y" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Y4G-DY-pK8"/>
+                            <constraint firstItem="tmK-wE-csy" firstAttribute="bottom" secondItem="IEt-gg-38Y" secondAttribute="bottom" type="default" id="UUK-dv-2oN"/>
                             <constraint firstItem="F9w-xm-1Hw" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="d2H-ZJ-rxo"/>
+                            <constraint firstItem="a05-h1-B0Y" firstAttribute="bottom" secondItem="tmK-wE-csy" secondAttribute="bottom" type="default" id="dwb-sv-Wyd"/>
+                            <constraint firstItem="tmK-wE-csy" firstAttribute="top" secondItem="IEt-gg-38Y" secondAttribute="top" type="default" id="ejO-yz-ffs"/>
+                            <constraint firstAttribute="trailing" secondItem="IEt-gg-38Y" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="n7Q-zW-q7U"/>
+                            <constraint firstItem="a05-h1-B0Y" firstAttribute="top" secondItem="tmK-wE-csy" secondAttribute="top" type="default" id="tUI-Lg-cyc"/>
                             <constraint firstItem="F9w-xm-1Hw" firstAttribute="top" secondItem="5" secondAttribute="top" type="default" id="vZu-a1-SYy"/>
-                            <constraint firstItem="IEt-gg-38Y" firstAttribute="top" secondItem="5" secondAttribute="top" constant="418" id="wWm-sR-1hf"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="d3k-uP-jUU"/>
@@ -87,10 +133,11 @@
             <objects>
                 <viewController id="zyu-do-TLp" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nWc-Rx-jB3">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="KPk-Ji-JwI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gdg-hM-npI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -115,6 +162,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Appendices" image="gbr-sectionappendices-open.png" id="qx9-iG-3ac"/>
+                    <connections>
+                        <segue destination="aHt-AH-APH" kind="push" id="B1E-Lz-rsX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PhB-Gx-UAh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -125,10 +175,11 @@
             <objects>
                 <viewController id="aHt-AH-APH" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="htS-BD-SkQ">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="8zs-G1-bNm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Qz-Se-ngH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -168,6 +219,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Diagrams" image="gbr-diagrams-open.png" id="4KT-DC-O5w"/>
+                    <connections>
+                        <segue destination="g0u-Lv-VLL" kind="push" id="SRt-B0-igf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fg7-Mi-RVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -178,10 +232,11 @@
             <objects>
                 <viewController id="g0u-Lv-VLL" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w2s-B8-EW3">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="OyZ-CV-n5u"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uid-tJ-VFp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -206,6 +261,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="New" image="gbr-newrecentlyupdated-open.png" id="Hqa-84-GOi"/>
+                    <connections>
+                        <segue destination="XmV-y6-gj9" kind="push" id="g82-Mj-KyX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zEI-jU-MWi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -216,10 +274,11 @@
             <objects>
                 <viewController id="XmV-y6-gj9" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ph4-vR-yZy">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Lrg-lm-arh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bk0-3b-qg1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -286,6 +345,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Pink Pages" image="gbr-pinkpages-open.png" id="HsX-Xj-ONf"/>
+                    <connections>
+                        <segue destination="pxF-M5-9bV" kind="push" id="gnv-di-fFp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7xg-34-Skx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -296,10 +358,11 @@
             <objects>
                 <viewController id="pxF-M5-9bV" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AKv-Sq-DWL">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Ah6-TS-mqu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="78R-4C-Xx1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -310,10 +373,11 @@
             <objects>
                 <viewController id="faS-Lb-ybX" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UVy-2j-raq">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="zi4-WK-oFk"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y6i-Oj-kU5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -338,6 +402,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Rule Book" image="gbr-rulebook-open.png" id="9kc-Hd-EzC"/>
+                    <connections>
+                        <segue destination="zyu-do-TLp" kind="push" id="1eB-ch-LKq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPl-Es-oyc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -362,6 +429,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Manual" image="gbr-workingmanual-open.png" id="iqS-B7-5a5"/>
+                    <connections>
+                        <segue destination="faS-Lb-ybX" kind="push" id="qWR-ZC-J8e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wh9-Mr-FE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -413,12 +483,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gbr-atc-off.png" width="336" height="354"/>
         <image name="gbr-background-logo.jpg" width="1536" height="2048"/>
         <image name="gbr-diagrams-open.png" width="79" height="30"/>
         <image name="gbr-docmanager-open.png" width="336" height="354"/>
+        <image name="gbr-lunch-off.png" width="336" height="354"/>
         <image name="gbr-newrecentlyupdated-open.png" width="30" height="30"/>
         <image name="gbr-notices-open.png" width="30" height="30"/>
         <image name="gbr-pinkpages-open.png" width="180" height="68"/>
+        <image name="gbr-remotesignoff-off.png" width="336" height="354"/>
         <image name="gbr-rostering-open.png" width="30" height="30"/>
         <image name="gbr-rulebook-open.png" width="79" height="30"/>
         <image name="gbr-sectionappendices-open.png" width="68" height="68"/>

@@ -18,6 +18,9 @@
 #define SERVER_GET_FILE_URL_STRING @"http://192.168.0.89/WebService.asmx/getFile"
 #define SERVER_GET_ALL_FILES_URL_STRING @"http://192.168.0.89/WebService.asmx/getAllFiles"
 
+// define download URL
+#define SERVER_DOWNLOAD_URL_STRING @"http://192.168.0.89/FileGBRF/"
+
 // define HTML parsing X-Path string
 #define X_PATH_QUERY_STRING @"/html/body/ul/li/a"
 
