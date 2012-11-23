@@ -1,15 +1,15 @@
 //
-//  DocumentService.m
+//  AppendixDocumentService.m
 //  Wibrary
 //
-//  Created by Robert Wilson on 14/11/2012.
+//  Created by Sprint on 23/11/2012.
 //  Copyright (c) 2012 Robert Wilson. All rights reserved.
 //
 
-#import "DocumentService.h"
+#import "AppendixDocumentService.h"
 #import "WibraryConstants.h"
 
-@implementation DocumentService
+@implementation AppendixDocumentService
 
 @synthesize image = _image;
 @synthesize caption = _caption;
@@ -43,20 +43,19 @@
     NSMutableArray *documentData = [[NSMutableArray alloc] initWithCapacity:0];
     NSArray *directoryPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [directoryPaths objectAtIndex:0];
-    NSLog(@"doc dir path = %@", documentsDirectory);
     
     NSError *error = nil;
-//    NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:&error];
+    //    NSArray *directoryContent = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory error:&error];
     
-//    NSLog(@"contents of app's document folder = %@", directoryContent);
+    //    NSLog(@"contents of app's document folder = %@", directoryContent);
     
     // create string to folder
-    NSString *myFolder = [documentsDirectory stringByAppendingPathComponent:@"downloads/Rostering"];
-    NSLog(@"rostering at: %@", myFolder);
+    NSString *myFolder = [documentsDirectory stringByAppendingPathComponent:@"downloads/Sectional Appendices"];
+    NSLog(@"appendices at: %@", myFolder);
     NSLog (@"%@",[error localizedDescription]);
     
     NSArray *folderContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:myFolder error:&error];
-    NSLog(@"contetns of rostering folder: %@", folderContents);
+    NSLog(@"contetns of appendices folder: %@", folderContents);
     
     NSString *docPath;
     
@@ -68,11 +67,11 @@
         
         // create path to file by appending file name to folder path
         NSString *myFilePath = [myFolder stringByAppendingPathComponent:theFileName];
-       
+        
         NSLog(@"my fp: %@", myFilePath);
         
         NSLog(@"filename: '%@' of extension type '%@'", theFileName, extensionType);
-    
+        
         // assign appropriate icon to extension type
         NSString *iconIdentifier;
         if ([extensionType isEqualToString:@"doc"]) {
@@ -99,12 +98,12 @@
             
             // concatenate folder and document strings
             NSString *fullPathURLString = [folderURLString stringByAppendingString: fileNameURLString];
-//            NSLog(@"fps: %@", fullPathURLString);
+            //            NSLog(@"fps: %@", fullPathURLString);
             
             // get file attributes including modified time
             NSLog(@"doc path: %@", fullPathURLString);
-           
-//            NSString* filePath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"pdf"];
+            
+            //            NSString* filePath = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"pdf"];
             NSError *error = nil;
             NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:myFilePath error:&error];
             
@@ -119,25 +118,26 @@
             
             
             // create url to document
-//            NSURL *folderURL = [NSURL URLWithString:folderURLString];            
-//            NSURL *documentURLWithExtension = [NSURL fileURLWithPath:fullPathURLString];
+            //            NSURL *folderURL = [NSURL URLWithString:folderURLString];
+            //            NSURL *documentURLWithExtension = [NSURL fileURLWithPath:fullPathURLString];
             NSURL *documentsDirectoryURL = [NSURL URLWithString:folderURLString];
             NSURL *documentURL = [documentsDirectoryURL URLByAppendingPathComponent:theFileName];
             NSURL *documentURLWithExtension = [documentURL URLByAppendingPathExtension:extensionType];
-           
+            
             // create URL request object
             NSURLRequest *requestObject = [NSURLRequest requestWithURL:documentURLWithExtension];
             
             // initialise document icon for display
-            DocumentService *diagramsIcon = [[DocumentService alloc] initWithCaption:theFileName
+            AppendixDocumentService *diagramsIcon = [[AppendixDocumentService alloc] initWithCaption:theFileName
                                                                             andImage:[UIImage imageNamed:iconIdentifier]
                                                                        andURLRequest:requestObject];
-//            NSLog(@"req obj: %@", requestObject);
-
+            //            NSLog(@"req obj: %@", requestObject);
+            
             [documentData addObject:diagramsIcon];
         }
     }
     return documentData;
 }
+
 
 @end

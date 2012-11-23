@@ -62,7 +62,6 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a05-h1-B0Y">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="166" id="WxU-I7-y5R"/>
                                     <constraint firstAttribute="width" constant="165" id="qEV-2b-9Wq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -78,7 +77,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Fex-1k-1kO" firstAttribute="centerX" secondItem="F9w-xm-1Hw" secondAttribute="centerX" type="default" id="3QT-gX-lEh"/>
-                            <constraint firstItem="Ek2-kl-rZV" firstAttribute="centerY" secondItem="Fex-1k-1kO" secondAttribute="centerY" type="default" id="3UJ-f0-b4V"/>
                             <constraint firstAttribute="trailing" secondItem="tmK-wE-csy" secondAttribute="trailing" constant="208" id="62y-zi-j6Q"/>
                             <constraint firstItem="Ek2-kl-rZV" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="8Vj-HL-Ebw"/>
                             <constraint firstItem="Fex-1k-1kO" firstAttribute="centerY" secondItem="F9w-xm-1Hw" secondAttribute="centerY" type="default" id="A77-Xy-UQV"/>
@@ -86,9 +84,11 @@
                             <constraint firstItem="a05-h1-B0Y" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="207" id="FOj-mZ-CPc"/>
                             <constraint firstItem="F9w-xm-1Hw" firstAttribute="leading" secondItem="5" secondAttribute="leading" type="default" id="Ne3-BG-WXf"/>
                             <constraint firstItem="tmK-wE-csy" firstAttribute="bottom" secondItem="IEt-gg-38Y" secondAttribute="bottom" type="default" id="UUK-dv-2oN"/>
+                            <constraint firstItem="Ek2-kl-rZV" firstAttribute="top" secondItem="5" secondAttribute="top" constant="397" id="d0T-EP-nzB"/>
                             <constraint firstItem="F9w-xm-1Hw" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="d2H-ZJ-rxo"/>
                             <constraint firstItem="a05-h1-B0Y" firstAttribute="bottom" secondItem="tmK-wE-csy" secondAttribute="bottom" type="default" id="dwb-sv-Wyd"/>
                             <constraint firstItem="tmK-wE-csy" firstAttribute="top" secondItem="IEt-gg-38Y" secondAttribute="top" type="default" id="ejO-yz-ffs"/>
+                            <constraint firstItem="Ek2-kl-rZV" firstAttribute="top" secondItem="a05-h1-B0Y" secondAttribute="top" type="default" id="jsJ-tK-1rY"/>
                             <constraint firstAttribute="trailing" secondItem="IEt-gg-38Y" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="n7Q-zW-q7U"/>
                             <constraint firstItem="a05-h1-B0Y" firstAttribute="top" secondItem="tmK-wE-csy" secondAttribute="top" type="default" id="tUI-Lg-cyc"/>
                             <constraint firstItem="F9w-xm-1Hw" firstAttribute="top" secondItem="5" secondAttribute="top" type="default" id="vZu-a1-SYy"/>
@@ -128,10 +128,10 @@
             </objects>
             <point key="canvasLocation" x="2741" y="387"/>
         </scene>
-        <!--View Controller-->
+        <!--Rules Detail View Controller-->
         <scene sceneID="BPA-VE-CYI">
             <objects>
-                <viewController id="zyu-do-TLp" sceneMemberID="viewController">
+                <viewController id="zyu-do-TLp" customClass="RulesDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nWc-Rx-jB3">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -143,10 +143,10 @@
             </objects>
             <point key="canvasLocation" x="5591" y="-1855"/>
         </scene>
-        <!--View Controller - Appendices-->
+        <!--Appendix Grid View Controller - Appendices-->
         <scene sceneID="aSe-Pm-diu">
             <objects>
-                <viewController id="neS-Ws-poF" sceneMemberID="viewController">
+                <viewController id="neS-Ws-poF" customClass="AppendixGridViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y8R-g4-hV7">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -163,17 +163,17 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Appendices" image="gbr-sectionappendices-open.png" id="qx9-iG-3ac"/>
                     <connections>
-                        <segue destination="aHt-AH-APH" kind="push" id="B1E-Lz-rsX"/>
+                        <segue destination="aHt-AH-APH" kind="push" identifier="appendixDetail" id="B1E-Lz-rsX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PhB-Gx-UAh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2749" y="1540"/>
+            <point key="canvasLocation" x="2749" y="1561"/>
         </scene>
-        <!--View Controller-->
+        <!--Appendix Detail View Controller-->
         <scene sceneID="wWW-U2-fUE">
             <objects>
-                <viewController id="aHt-AH-APH" sceneMemberID="viewController">
+                <viewController id="aHt-AH-APH" customClass="AppendixDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="htS-BD-SkQ">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -200,10 +200,10 @@
             </objects>
             <point key="canvasLocation" x="3649" y="412"/>
         </scene>
-        <!--View Controller - Diagrams-->
+        <!--Giagrams Grid View Controller - Diagrams-->
         <scene sceneID="gtO-6X-4kP">
             <objects>
-                <viewController id="gs5-A5-0ZP" sceneMemberID="viewController">
+                <viewController id="gs5-A5-0ZP" customClass="GiagramsGridViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uKl-l7-7Pr">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -220,17 +220,17 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Diagrams" image="gbr-diagrams-open.png" id="4KT-DC-O5w"/>
                     <connections>
-                        <segue destination="g0u-Lv-VLL" kind="push" id="SRt-B0-igf"/>
+                        <segue destination="g0u-Lv-VLL" kind="push" identifier="diagramsDetail" id="SRt-B0-igf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fg7-Mi-RVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4642" y="433"/>
         </scene>
-        <!--View Controller-->
+        <!--Diagrams Detail View Controller-->
         <scene sceneID="8jf-Vl-Ni6">
             <objects>
-                <viewController id="g0u-Lv-VLL" sceneMemberID="viewController">
+                <viewController id="g0u-Lv-VLL" customClass="DiagramsDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="w2s-B8-EW3">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -242,10 +242,10 @@
             </objects>
             <point key="canvasLocation" x="5577" y="465"/>
         </scene>
-        <!--View Controller - New-->
+        <!--Grid View Controller - GOA-->
         <scene sceneID="bF8-Ba-5S7">
             <objects>
-                <viewController id="Grt-lS-chV" sceneMemberID="viewController">
+                <viewController id="Grt-lS-chV" customClass="GOAGridViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2JD-IO-QOy">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -260,19 +260,19 @@
                             <constraint firstItem="zOd-6j-Jog" firstAttribute="trailing" secondItem="2JD-IO-QOy" secondAttribute="trailing" type="default" id="o7x-Pm-sFL"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="New" image="gbr-newrecentlyupdated-open.png" id="Hqa-84-GOi"/>
+                    <tabBarItem key="tabBarItem" title="GOA" image="gbr-newrecentlyupdated-open.png" id="Hqa-84-GOi"/>
                     <connections>
-                        <segue destination="XmV-y6-gj9" kind="push" id="g82-Mj-KyX"/>
+                        <segue destination="XmV-y6-gj9" kind="push" identifier="goaDetail" id="g82-Mj-KyX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zEI-jU-MWi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4626" y="1569"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="gLv-w7-SXm">
             <objects>
-                <viewController id="XmV-y6-gj9" sceneMemberID="viewController">
+                <viewController id="XmV-y6-gj9" customClass="GOADetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ph4-vR-yZy">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -284,10 +284,10 @@
             </objects>
             <point key="canvasLocation" x="5577" y="1617"/>
         </scene>
-        <!--View Controller - Notices-->
+        <!--Notices Grid View Controller - Notices-->
         <scene sceneID="VfP-kS-f6e">
             <objects>
-                <viewController id="Bwr-9V-WgH" sceneMemberID="viewController">
+                <viewController id="Bwr-9V-WgH" customClass="NoticesGridViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qbS-mw-IXc">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -304,17 +304,17 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Notices" image="gbr-notices-open.png" id="mbE-ko-b9y"/>
                     <connections>
-                        <segue destination="Mh8-cq-bFx" kind="push" identifier="detail" id="dhU-Wt-rq5"/>
+                        <segue destination="Mh8-cq-bFx" kind="push" identifier="noticesDetail" id="dhU-Wt-rq5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JSd-yE-uWJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2741" y="-721"/>
         </scene>
-        <!--Detail View Controller-->
+        <!--Notices Detail View Controller-->
         <scene sceneID="hwp-VN-ruL">
             <objects>
-                <viewController id="Mh8-cq-bFx" customClass="DetailViewController" sceneMemberID="viewController">
+                <viewController id="Mh8-cq-bFx" customClass="NoticesDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PH2-Nf-oUK">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -326,10 +326,10 @@
             </objects>
             <point key="canvasLocation" x="3651" y="-721"/>
         </scene>
-        <!--View Controller - Pink Pages-->
+        <!--Pink Grid View Controller - Pink Pages-->
         <scene sceneID="3cl-tb-NU8">
             <objects>
-                <viewController id="8iv-dm-PPJ" sceneMemberID="viewController">
+                <viewController id="8iv-dm-PPJ" customClass="PinkGridViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bdq-lA-mXg">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -346,17 +346,17 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Pink Pages" image="gbr-pinkpages-open.png" id="HsX-Xj-ONf"/>
                     <connections>
-                        <segue destination="pxF-M5-9bV" kind="push" id="gnv-di-fFp"/>
+                        <segue destination="pxF-M5-9bV" kind="push" identifier="pinkDetail" id="gnv-di-fFp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7xg-34-Skx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4642" y="-719"/>
         </scene>
-        <!--View Controller-->
+        <!--Pink Detail View Controller-->
         <scene sceneID="OOB-ZA-Mmf">
             <objects>
-                <viewController id="pxF-M5-9bV" sceneMemberID="viewController">
+                <viewController id="pxF-M5-9bV" customClass="PinkDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AKv-Sq-DWL">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -368,10 +368,10 @@
             </objects>
             <point key="canvasLocation" x="5577" y="-695"/>
         </scene>
-        <!--View Controller-->
+        <!--Manual Detail View Controller-->
         <scene sceneID="IWq-17-FaA">
             <objects>
-                <viewController id="faS-Lb-ybX" sceneMemberID="viewController">
+                <viewController id="faS-Lb-ybX" customClass="ManualDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UVy-2j-raq">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -383,10 +383,10 @@
             </objects>
             <point key="canvasLocation" x="3651" y="-1895"/>
         </scene>
-        <!--View Controller - Rule Book-->
+        <!--Rules Grid View Controller - Rule Book-->
         <scene sceneID="8G5-xH-RtP">
             <objects>
-                <viewController id="3qi-dt-2Ga" sceneMemberID="viewController">
+                <viewController id="3qi-dt-2Ga" customClass="RulesGridViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3QV-wk-y9H">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -403,17 +403,17 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Rule Book" image="gbr-rulebook-open.png" id="9kc-Hd-EzC"/>
                     <connections>
-                        <segue destination="zyu-do-TLp" kind="push" id="1eB-ch-LKq"/>
+                        <segue destination="zyu-do-TLp" kind="push" identifier="rulesDetail" id="1eB-ch-LKq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPl-Es-oyc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4650" y="-1855"/>
         </scene>
-        <!--View Controller - Manual-->
+        <!--Manaul Grid View Controller - Manual-->
         <scene sceneID="yyT-jx-Myy">
             <objects>
-                <viewController id="fZo-hs-BRo" sceneMemberID="viewController">
+                <viewController id="fZo-hs-BRo" customClass="ManaulGridViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yip-KT-51I">
                         <rect key="frame" x="0.0" y="64" width="768" height="911"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -430,7 +430,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Manual" image="gbr-workingmanual-open.png" id="iqS-B7-5a5"/>
                     <connections>
-                        <segue destination="faS-Lb-ybX" kind="push" id="qWR-ZC-J8e"/>
+                        <segue destination="faS-Lb-ybX" kind="push" identifier="manualDetail" id="qWR-ZC-J8e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wh9-Mr-FE5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -505,8 +505,32 @@
                 <relationship kind="outlet" name="delegate"/>
             </relationships>
         </class>
+        <class className="AppendixDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppendixDetailViewController.h"/>
+        </class>
+        <class className="AppendixGridViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AppendixGridViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="gridView" candidateClass="AQGridView"/>
+            </relationships>
+        </class>
         <class className="DetailViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
+        </class>
+        <class className="DiagramsDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DiagramsDetailViewController.h"/>
+        </class>
+        <class className="GOADetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GOADetailViewController.h"/>
+        </class>
+        <class className="GOAGridViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GOAGridViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="gridView" candidateClass="AQGridView"/>
+            </relationships>
+        </class>
+        <class className="GiagramsGridViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GiagramsGridViewController.h"/>
         </class>
         <class className="GridViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GridViewController.h"/>
@@ -514,12 +538,46 @@
                 <relationship kind="outlet" name="gridView" candidateClass="AQGridView"/>
             </relationships>
         </class>
+        <class className="ManaulGridViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ManaulGridViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="gridView" candidateClass="AQGridView"/>
+            </relationships>
+        </class>
+        <class className="ManualDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ManualDetailViewController.h"/>
+        </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="NoticesDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NoticesDetailViewController.h"/>
+        </class>
+        <class className="NoticesGridViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NoticesGridViewController.h"/>
+        </class>
+        <class className="PinkDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PinkDetailViewController.h"/>
+        </class>
+        <class className="PinkGridViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PinkGridViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="gridView" candidateClass="AQGridView"/>
+            </relationships>
+        </class>
+        <class className="RulesDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RulesDetailViewController.h"/>
+        </class>
+        <class className="RulesGridViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RulesGridViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="gridView" candidateClass="AQGridView"/>
+            </relationships>
         </class>
         <class className="WibraryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/WibraryViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="activityIndicatorView" candidateClass="UIActivityIndicatorView"/>
                 <relationship kind="outlet" name="docManagerButton" candidateClass="UIButton"/>
             </relationships>
         </class>

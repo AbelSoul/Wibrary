@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WibraryViewController : UIViewController <UIAlertViewDelegate>
+@interface WibraryViewController : UIViewController <UIAlertViewDelegate> {
+    
+    IBOutlet UIActivityIndicatorView *activityIndicatorView;
+}
 
 @property (weak, nonatomic) IBOutlet UIButton *docManagerButton;
+
+@property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
 
 @end
